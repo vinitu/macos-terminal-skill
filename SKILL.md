@@ -1,9 +1,9 @@
 ---
-name: apple-terminal
+name: macos-terminal
 description: Terminal.app automation on macOS for AI agents via AppleScript. Open windows/tabs, run commands, read output, manage layout, and switch profiles.
 ---
 
-# Apple Terminal Skill
+# macOS Terminal Skill
 
 Control macOS Terminal.app using AppleScript (`osascript`).
 

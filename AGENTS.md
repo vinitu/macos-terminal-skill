@@ -1,6 +1,6 @@
 # Repo Guide
 
-This repo stores a skill for Terminal.app automation on macOS.
+This repo stores the macos-terminal skill for Terminal.app automation on macOS.
 
 ## Goal
 

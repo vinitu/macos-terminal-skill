@@ -1,11 +1,11 @@
-# Apple Terminal Skill
+# macOS Terminal Skill
 
 A skill for Terminal.app automation on macOS via AppleScript.
 
 ## Installation
 
 ```bash
-skills.sh add vinitu/apple-terminal-skill
+skills.sh add vinitu/macos-terminal-skill
 ```
 
 ## Scope
