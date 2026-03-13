@@ -5,6 +5,12 @@ A skill for Terminal.app automation on macOS via AppleScript.
 ## Installation
 
 ```bash
+npx skills add vinitu/macos-terminal-skill
+```
+
+Or with [skills.sh](https://skills.sh):
+
+```bash
 skills.sh add vinitu/macos-terminal-skill
 ```
 
