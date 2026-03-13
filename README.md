@@ -26,10 +26,15 @@ skills.sh add vinitu/macos-terminal-skill
 
 ## How To Use
 
+From the skill directory (or path where scripts are installed):
+
 ```bash
-osascript -e 'tell application "Terminal" to do script "echo hello"'
-osascript -e 'tell application "Terminal" to get contents of selected tab of front window'
-osascript -e 'tell application "Terminal" to get busy of selected tab of front window'
+# Run command in new window (or front-window)
+osascript scripts/window/run-script.applescript "echo hello"
+# Get contents of selected tab in front window
+osascript scripts/tab/contents.applescript
+# Check if selected tab is busy (true/false)
+osascript scripts/tab/busy.applescript
 ```
 
-See `SKILL.md` for the full command reference.
+See `SKILL.md` for the full command reference and scripts under `scripts/`.
