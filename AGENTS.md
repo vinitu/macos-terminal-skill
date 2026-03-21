@@ -18,7 +18,8 @@ This repo stores the macos-terminal skill for Terminal.app automation on macOS.
 - `scripts/tab/contents.applescript`, `history.applescript`, `busy.applescript`.
 - `tests/dictionary_contract.sh`: contract test against Terminal scripting dictionary.
 - `tests/smoke_terminal.sh`: smoke test for script layer (skips when Terminal not available).
-- `.github/workflows/ci-pr.yml`, `ci-main.yml`: CI on PR and push to main.
+- `.github/workflows/ci-pr.yml`: PR validation, auto-merge, version bump, tag, and release flow.
+- `.github/workflows/ci-main.yml`: main-branch validation, patch tag, and release flow.
 
 ## Validation
 
