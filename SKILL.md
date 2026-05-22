@@ -51,6 +51,28 @@ scripts/commands/window/run-script.sh
 scripts/commands/window/zoomed.sh
 ```
 
+## JSON Contract
+
+Tab object:
+
+- `index` (integer)
+- `name` (string)
+- `busy` (boolean)
+- `contents` (string)
+
+Window object:
+
+- `index` (integer)
+- `name` (string)
+- `bounds` (list of integers: {left, top, right, bottom})
+- `miniaturized` (boolean)
+- `zoomed` (boolean)
+
+Scalar envelopes:
+
+- `count`: `{"count": N}`
+- `success/failure`: `{"success": true/false, "error": "..."}`
+
 ## Safety Boundaries
 
 - Window close and script execution must be explicit.
