@@ -1,6 +1,9 @@
 # macOS Terminal Skill
 
-A skill for Terminal.app automation on macOS via AppleScript.
+This repo stores an AI agent skill for Apple Terminal.app on macOS.
+
+The public interface is `scripts/commands`.
+`scripts/applescripts` stores internal AppleScript backends and dictionary-aligned coverage.
 
 ## Installation
 
@@ -14,33 +17,59 @@ Or with [skills.sh](https://skills.sh):
 skills.sh add vinitu/macos-terminal-skill
 ```
 
-## Scope
-
-- Open new windows and tabs
-- Run commands in specific windows/tabs
-- Read terminal output and history
-- Check if commands are still running
-- Manage window size, position, layout
-- Switch profiles and themes
-- Get/set tab properties (title, busy, processes)
-
 ## Prerequisites
 
 - macOS with Terminal.app
-- Automation permission for your terminal app
-- Accessibility permission (for tab creation via keystrokes)
+- Automation permission granted to your terminal app
 
-## How To Use
+## Public Interface
 
-From the skill directory (or path where scripts are installed):
+Run skill actions with:
 
 ```bash
-# Run command in new window (or front-window)
-osascript scripts/window/run-script.applescript "echo hello"
-# Get contents of selected tab in front window
-osascript scripts/tab/contents.applescript
-# Check if selected tab is busy (true/false)
-osascript scripts/tab/busy.applescript
+scripts/commands/<entity>/<action>.sh [args...]
 ```
 
-See `SKILL.md` for the full command reference and scripts under `scripts/`.
+Output rules:
+
+- Commands return JSON by default unless noted otherwise.
+- `--json`, `--plain`, and `--format=plain|json` are not supported.
+
+## Backend Map
+
+- `scripts/commands/tab/*` → AppleScript in `scripts/applescripts/tab/*`
+- `scripts/commands/window/*` → AppleScript in `scripts/applescripts/window/*`
+
+`scripts/applescripts` is internal. Do not call it directly from the skill instructions.
+
+## Command Surface
+
+Tab:
+
+- `scripts/commands/tab/busy.sh`
+- `scripts/commands/tab/contents.sh`
+- `scripts/commands/tab/history.sh`
+
+Window:
+
+- `scripts/commands/window/bounds.sh`
+- `scripts/commands/window/close.sh`
+- `scripts/commands/window/count.sh`
+- `scripts/commands/window/miniaturized.sh`
+- `scripts/commands/window/name.sh`
+- `scripts/commands/window/run-script.sh`
+- `scripts/commands/window/zoomed.sh`
+
+## Validation
+
+```bash
+make compile
+make test
+```
+
+`make test` runs live checks against Terminal.app and expects Terminal to be available.
+
+## Known Limits
+
+- Terminal must be running for most commands to work.
+- TCC permissions (Automation) must be granted to the terminal or parent process.
